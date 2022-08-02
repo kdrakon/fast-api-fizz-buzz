@@ -1,0 +1,28 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/status
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/fizzbuzz
+Accept: application/json
+Content-Type: application/json
+
+{
+  "start": 23,
+  "end": 52,
+  "fizz": 7,
+  "buzz": 8
+}
+
+###
+
+POST http://127.0.0.1:8000/fizzbuzz
+Accept: application/json
+Content-Type: application/json
+
+{
+  "start": 1,
+  "end": 100
+}
