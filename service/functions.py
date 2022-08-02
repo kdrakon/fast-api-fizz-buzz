@@ -6,9 +6,9 @@ from data_models.fizzbuzz import FizzBuzzStandard, FizzBuzzCustom, FizzBuzzAnswe
 def compute(fizzbuzz: FizzBuzzStandard) -> FizzBuzzAnswer:
     match fizzbuzz:
         case FizzBuzzCustom(start, end, fizz, buzz):
-            return FizzBuzzAnswer(__fizzbuzz(start, end, fizz, buzz))
+            return FizzBuzzAnswer(start, end, fizz, buzz, __fizzbuzz(start, end, fizz, buzz))
         case FizzBuzzStandard(start, end):
-            return FizzBuzzAnswer(__fizzbuzz(start, end, 3, 5))
+            return FizzBuzzAnswer(start, end, 3, 5, __fizzbuzz(start, end, 3, 5))
 
 
 def __fizzbuzz(start: int, end: int, fizz: int, buzz: int) -> [str]:
@@ -23,4 +23,8 @@ def __fizz_or_buzz_or_retain(fizz: int, buzz: int, i: int) -> str:
         case _ if i % buzz == 0:
             return "buzz"
         case _:
-            return i
+            return f"{i}"
+
+
+def key_for_answer(answer: FizzBuzzAnswer) -> str:
+    return f'{answer.start}-{answer.end}-{answer.fizz}-{answer.buzz}'

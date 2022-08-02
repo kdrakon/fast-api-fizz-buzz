@@ -8,7 +8,8 @@ class FizzBuzzService:
     def __init__(self, repository: Repository):
         self.repository = repository
 
-    def compute(self, fizzbuzz: FizzBuzzStandard) -> FizzBuzzAnswer:
+    async def compute(self, fizzbuzz: FizzBuzzStandard) -> FizzBuzzAnswer:
         answer = functions.compute(fizzbuzz)
-        self.repository.save_fizz_buzz_answer(answer)
+        key = functions.key_for_answer(answer)
+        await self.repository.save_fizz_buzz_answer(key, answer)
         return answer

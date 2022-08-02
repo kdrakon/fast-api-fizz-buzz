@@ -7,10 +7,13 @@ from persistence.repository import Repository
 from service.fizzbuzz_service import FizzBuzzService
 
 app: FastAPI = FastAPI()
+
+# dependency graph
 repository: Repository = FakeRepository()
 fizzbuzz_service: FizzBuzzService = FizzBuzzService(repository)
 
 
+# APIs
 @app.get("/status")
 async def status():
     return {"status": "ok"}
@@ -18,5 +21,5 @@ async def status():
 
 @app.post("/fizzbuzz", response_model=FizzBuzzResponse)
 async def post_fizz_buzz(body: FizzBuzzRequest) -> [str]:
-    answer: FizzBuzzAnswer = fizzbuzz_service.compute(to_fizz_buzz_input(body))
+    answer: FizzBuzzAnswer = await fizzbuzz_service.compute(to_fizz_buzz_input(body))
     return to_fizz_buzz_output(answer)

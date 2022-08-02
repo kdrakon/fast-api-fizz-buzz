@@ -17,4 +17,8 @@ class FizzBuzzCustom(FizzBuzzStandard):
 
 @dataclass
 class FizzBuzzAnswer:
+    start: int
+    end: int
+    fizz: int
+    buzz: int
     answer: [str]
