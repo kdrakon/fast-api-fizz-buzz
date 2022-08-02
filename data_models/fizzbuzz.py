@@ -8,7 +8,7 @@ class FizzBuzzStandard:
 
 
 @dataclass
-class FizzBuzzCustom(FizzBuzzStandard):
+class FizzBuzzCustom:
     start: int
     end: int
     fizz: int

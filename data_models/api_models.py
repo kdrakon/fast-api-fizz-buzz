@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import List
 
-from data_models.fizzbuzz import FizzBuzzStandard, FizzBuzzCustom, FizzBuzzAnswer
+from data_models.fizzbuzz import FizzBuzzStandard, FizzBuzzCustom, FizzBuzzAnswer, FizzBuzzInput
 
 
 @dataclass
@@ -17,7 +17,7 @@ class FizzBuzzResponse:
     answer: List[str] = field(default_factory=list)
 
 
-def to_fizz_buzz_input(request: FizzBuzzRequest) -> FizzBuzzStandard:
+def to_fizz_buzz_input(request: FizzBuzzRequest) -> FizzBuzzInput:
     match (request.fizz, request.buzz):
         case (None, None) | (None, _) | (_, None):
             return FizzBuzzStandard(request.start, request.end)
