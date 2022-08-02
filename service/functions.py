@@ -1,9 +1,9 @@
 from functools import partial
 
-from data_models.fizzbuzz import FizzBuzzStandard, FizzBuzzCustom, FizzBuzzAnswer
+from data_models.fizzbuzz import FizzBuzzStandard, FizzBuzzCustom, FizzBuzzAnswer, FizzBuzzInput
 
 
-def compute(fizzbuzz: FizzBuzzStandard) -> FizzBuzzAnswer:
+def compute(fizzbuzz: FizzBuzzInput) -> FizzBuzzAnswer:
     match fizzbuzz:
         case FizzBuzzCustom(start, end, fizz, buzz):
             return FizzBuzzAnswer(start, end, fizz, buzz, __fizzbuzz(start, end, fizz, buzz))

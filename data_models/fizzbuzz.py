@@ -15,6 +15,9 @@ class FizzBuzzCustom(FizzBuzzStandard):
     buzz: int
 
 
+FizzBuzzInput = FizzBuzzStandard | FizzBuzzCustom
+
+
 @dataclass
 class FizzBuzzAnswer:
     start: int
