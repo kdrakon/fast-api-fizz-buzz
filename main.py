@@ -20,6 +20,6 @@ async def status():
 
 
 @app.post("/fizzbuzz", response_model=FizzBuzzResponse)
-async def post_fizz_buzz(body: FizzBuzzRequest) -> [str]:
+async def post_fizz_buzz(body: FizzBuzzRequest) -> FizzBuzzResponse:
     answer: FizzBuzzAnswer = await fizzbuzz_service.compute(to_fizz_buzz_input(body))
     return to_fizz_buzz_output(answer)

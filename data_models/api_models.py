@@ -21,7 +21,7 @@ def to_fizz_buzz_input(request: FizzBuzzRequest) -> FizzBuzzInput:
     match (request.fizz, request.buzz):
         case (None, None) | (None, _) | (_, None):
             return FizzBuzzStandard(request.start, request.end)
-        case (fizz, buzz):
+        case (fizz, buzz) if type(fizz) is int and type(buzz) is int:  # I would rather create a class like `Some`, but then I lose the JSON serialisation
             return FizzBuzzCustom(request.start, request.end, fizz, buzz)
 
 

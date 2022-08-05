@@ -24,4 +24,4 @@ class FizzBuzzAnswer:
     end: int
     fizz: int
     buzz: int
-    answer: [str]
+    answer: list[str]

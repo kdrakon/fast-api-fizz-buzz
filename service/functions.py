@@ -11,9 +11,9 @@ def compute(fizzbuzz: FizzBuzzInput) -> FizzBuzzAnswer:
             return FizzBuzzAnswer(start, end, 3, 5, __fizzbuzz(start, end, 3, 5))
 
 
-def __fizzbuzz(start: int, end: int, fizz: int, buzz: int) -> [str]:
-    listrange: [int] = list(range(start, end + 1))
-    return list(map(partial(__fizz_or_buzz_or_retain, fizz, buzz), listrange))
+def __fizzbuzz(start: int, end: int, fizz: int, buzz: int) -> list[str]:
+    list_range: list[int] = list(range(start, end + 1))
+    return list(map(partial(__fizz_or_buzz_or_retain, fizz, buzz), list_range))
 
 
 def __fizz_or_buzz_or_retain(fizz: int, buzz: int, i: int) -> str:
